@@ -1,9 +1,12 @@
 package domain;
 
+import service.NumberGenarator;
+import service.RandomValueGenerator;
 import view.PrintStatus;
 
+import javax.sql.rowset.CachedRowSet;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static domain.MoveStatus.*;
 
@@ -15,13 +18,13 @@ public class CarBundle {
         this.cars = cars;
     }
 
-   public void addDistance(){
-        for(Car car : cars){
-            MoveStatus moveStatus = decideMoveStop((int)(Math.random()*10));
-            car.move(moveStatus);
-            PrintStatus.print(car);
-        }
-       System.out.println();
+   public void addDistance(NumberGenarator numberGenarator){
+           for(Car car : cars){
+               MoveStatus moveStatus = decideMoveStop(numberGenarator.generate());
+               car.move(moveStatus);
+               PrintStatus.print(car);
+           }
+           System.out.println();
     }
 
     private MoveStatus decideMoveStop(int randomNumber) {

@@ -7,11 +7,12 @@ import java.util.List;
 
 public class CarFactory {
 
-    private CarFactory(){};
+    private CarFactory(){}
 
-    public static List<Car> creatCars(int carNumbers){
+    public static List<Car> creatCars(int carCount) {
         List<Car> cars=new ArrayList<>();
-        for(int init=0; init<carNumbers; init++){
+
+        for (int init = 0; init < carCount; init++) {
             cars.add(new Car(1));
         }
         return cars;
