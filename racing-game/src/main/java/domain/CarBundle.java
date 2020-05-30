@@ -17,8 +17,7 @@ public class CarBundle {
 
    public void addDistance(){
         for(Car car : cars){
-            int randomNumber = (int)(Math.random()*10);
-            MoveStatus moveStatus = decideMoveStop(randomNumber);
+            MoveStatus moveStatus = decideMoveStop((int)(Math.random()*10));
             car.move(moveStatus);
             PrintStatus.print(car);
         }
@@ -26,9 +25,9 @@ public class CarBundle {
     }
 
     private MoveStatus decideMoveStop(int randomNumber) {
-        if(randomNumber>4)
+        if(randomNumber>4) {
             return MOVE;
-
+        }
         return STOP;
     }
 }
